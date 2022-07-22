@@ -17,7 +17,6 @@ const Home = () => {
     } catch (error) {
         console.log(error);
     }
-    
   }
 
 useEffect(() => {
@@ -29,7 +28,7 @@ console.log(tutorials);
   return (
     <>
     <AddTutorial />
-    <TutorialList />
+    <TutorialList tutorials={tutorials} />
     </>
   )
 }
