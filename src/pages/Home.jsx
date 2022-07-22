@@ -1,10 +1,13 @@
 import React from 'react'
+import AddTutorial from '../components/AddTutorial'
+import TutorialList from '../components/TutorialList'
 
 
 const Home = () => {
   return (
     <>
-    <h1>hello</h1>
+    <AddTutorial />
+    <TutorialList />
     </>
   )
 }
