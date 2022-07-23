@@ -23,11 +23,15 @@ useEffect(() => {
   getTutorials();
 }, [])
 
+const addTutorial = () => {
+
+}
+
 console.log(tutorials);
 
   return (
     <>
-    <AddTutorial />
+    <AddTutorial addTutorial={addTutorial} />
     <TutorialList tutorials={tutorials} />
     </>
   )
