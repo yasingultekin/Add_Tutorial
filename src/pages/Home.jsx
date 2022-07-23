@@ -23,8 +23,13 @@ useEffect(() => {
   getTutorials();
 }, [])
 
-const addTutorial = () => {
-
+const addTutorial = async (tutorial) => {
+  try {
+    await axios.post(url, tutorial);
+  } catch (error) {
+    console.log(error);
+  }
+  getTutorials();
 }
 
 console.log(tutorials);
