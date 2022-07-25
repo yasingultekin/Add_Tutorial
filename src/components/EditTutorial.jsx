@@ -1,13 +1,14 @@
 import React, { useState } from 'react'
 
-const EditTutorial = ({ editItem }) => {
-    const [title, setTitle] = useState("");
-    const [desc, setDesc] = useState("");
+const EditTutorial = ({ editTutorial, editItem }) => {
+    const { id, title: newTitle, description } = editItem; 
+
+    const [title, setTitle] = useState(newTitle);
+    const [desc, setDesc] = useState(description);
   
     const handleSave = (e) => {
-        const { id, title, desc } = editItem; 
       e.preventDefault();
-      editItem({ id, title: title, description: desc });
+      editItem({ id: id, title: title, description: desc });
       setTitle("");
       setDesc("");
     };
