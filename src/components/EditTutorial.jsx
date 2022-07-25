@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 const EditTutorial = ({ editTutorial, editItem }) => {
     const { id, title: newTitle, description } = editItem; 
@@ -8,10 +8,16 @@ const EditTutorial = ({ editTutorial, editItem }) => {
   
     const handleSave = (e) => {
       e.preventDefault();
-      editItem({ id: id, title: title, description: desc });
+      editTutorial({ id: id, title: title, description: desc });
       setTitle("");
       setDesc("");
     };
+
+    useEffect(() => {
+      setTitle(newTitle);
+      setDesc(description);
+    }, [newTitle, description]);
+    
   return (
     <div class="modal" tabindex="-1" id='edit-modal'>
   <div class="modal-dialog">
@@ -28,7 +34,7 @@ const EditTutorial = ({ editTutorial, editItem }) => {
     className="form-control" 
     id="title" 
     placeholder='Enter your title'
-    value={title}
+    value={title || ''}
     onChange={(e) => setTitle(e.target.value)}
     required
     />
@@ -41,7 +47,7 @@ const EditTutorial = ({ editTutorial, editItem }) => {
     className="form-control" 
     id="desc"
     placeholder='Enter your description'
-    value={desc}
+    value={desc || ''}
     onChange={(e) => setDesc(e.target.value)}
     required
     />
