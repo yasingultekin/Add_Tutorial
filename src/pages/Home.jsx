@@ -47,8 +47,8 @@ const deleteTutorial = async (id) => {
 
 const editTutorial = async (id, title, desc) => {
    const filtered = tutorials
-  .filter((tutor) => tutor.id === id)
-  .map(() => ({title: title, description: desc}))
+    .filter((tutor) => tutor.id === id)
+    .map(() => ({title: title, description: desc}))
 
   console.log(filtered)
   try {

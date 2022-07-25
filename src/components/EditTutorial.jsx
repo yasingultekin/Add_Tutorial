@@ -6,17 +6,19 @@ const EditTutorial = ({ editTutorial, editItem }) => {
     const [title, setTitle] = useState(newTitle);
     const [desc, setDesc] = useState(description);
   
-    const handleSave = (e) => {
-      e.preventDefault();
-      editTutorial({ id, title, desc });
-      setTitle("");
-      setDesc("");
-    };
-
     useEffect(() => {
       setTitle(newTitle);
       setDesc(description);
     }, [newTitle, description]);
+
+
+    const handleSave = (e) => {
+      e.preventDefault();
+      editTutorial(id, title, desc);
+      setTitle("");
+      setDesc("");
+    };
+
     
   return (
     <div className="modal" tabIndex="-1" id='edit-modal'>
